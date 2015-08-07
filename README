@@ -1,0 +1,29 @@
+=======
+pmdm.el
+=======
+
+:Author: Iñigo Serna, inigoserna AT gmail DOT com
+
+:Version: 1.0, August 7th. 2015
+
+:Home page: https://bitbucket/inigoserna/pmdm.el
+
+:License: | Copyright © 2015, Iñigo Serna
+          | This program is free software; you can redistribute it and/or modify
+          | it under the terms of the GNU General Public License as published by
+          | the Free Software Foundation, either version 3 of the License, or
+          | (at your option) any later version.
+          | There is NO WARRANTY.
+
+
+pmdm.el
+=======
+*pmdm.el* - poor man's desktop-mode - is a simple alternative to desktop-mode
+for writing and opening loaded files.
+
+Run *pmdm/write-opened-files* manually or in a hook before quitting
+emacs to save the files you want to restore later and *pmdm/load-files*
+to open the stored files again.
+
+Customizable variable *pmdm/file-name* is the name of the file used to
+store the files list.
