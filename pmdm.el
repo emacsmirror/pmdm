@@ -24,15 +24,15 @@
 
 ;;; Commentary:
 
-;; `pmdm.el' is a simple alternative to desktop-mode for writing
+;; `pmdm.el' is a simple alternative to desktop-mode for storing
 ;; and opening loaded files.
 ;;
 ;; Run `pmdm/write-opened-files' manually (or in a hook) before quitting
 ;; emacs to save the files you want to restore later and `pmdm/load-files'
 ;; to open the stored files again.
 ;;
-;; Customizable variable *pmdm/file-name* is the name of the file used
-;; to store the files list.
+;; Customizable variable *pmdm/file-name* contains the name of the file
+;; used to store the files list.
 
 ;;; Updates:
 
@@ -73,7 +73,7 @@
         (find-file-noselect file)
         (setq count (1+ count))))
     (message (if (zerop count)
-                 "No files loaded"
+                 "No files opened"
                (format "%d file%s opened" count (if (> count 1) "s" ""))))))
 
 (provide 'pmdm)
