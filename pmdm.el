@@ -57,7 +57,7 @@
   "Write a list of currently opened files to the file defined in `pmdm/file-name'."
   (interactive)
   (let ((files (delq nil (mapcar 'buffer-file-name (buffer-list)))))
-    (write-region (format ";; PDMD file.\n;; Please do not edit manually.\n%s"
+    (write-region (format ";; PMDM file.\n;; Please do not edit manually.\n%s"
                           (prin1-to-string files))
                   nil
                   pmdm/file-name)))
