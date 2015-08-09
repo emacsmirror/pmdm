@@ -31,7 +31,7 @@
 ;; emacs to save the files you want to restore later and `pmdm/load-files'
 ;; to open the stored files again.
 ;;
-;; Customizable variable *pmdm/file-name* contains the name of the file
+;; Customizable variable `pmdm/file-name' contains the name of the file
 ;; used to store the files list.
 
 ;;; Updates:
