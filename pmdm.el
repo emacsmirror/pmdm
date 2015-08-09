@@ -54,7 +54,7 @@
 
 ;;; Public interface
 (defun pmdm/write-opened-files()
-  "Write a list of currently opened files to the file defined in `isr/pmdm-file-name'."
+  "Write a list of currently opened files to the file defined in `pmdm/file-name'."
   (interactive)
   (let ((files (delq nil (mapcar 'buffer-file-name (buffer-list)))))
     (write-region (format ";; PDMD file.\n;; Please do not edit manually.\n%s"
@@ -63,7 +63,7 @@
                   pmdm/file-name)))
 
 (defun pmdm/load-files ()
-  "Load the files found in file `isr/pmdm-file-name'."
+  "Load the files found in file `pmdm/file-name'."
   (interactive)
   (let ((opened-files (delq nil (mapcar 'buffer-file-name (buffer-list))))
         (files (pmdm~read-files-list))
