@@ -42,7 +42,7 @@
 ;;; Code:
 
 ;;; Variables
-(defvar pmdm/file-name "~/.emacs.d/.pmdm-files"
+(defvar pmdm/file-name (expand-file-name ".pmdm-files" user-emacs-directory)
   "Location of file to write in opened files.")
 
 ;;; Internal functions
