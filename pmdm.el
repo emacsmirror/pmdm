@@ -27,46 +27,47 @@
 ;; `pmdm.el' is a simple alternative to desktop-mode for storing
 ;; and opening loaded files.
 ;;
-;; Run `pmdm/write-opened-files' manually (or in a hook) before quitting
-;; emacs to save the files you want to restore later and `pmdm/load-files'
+;; Run `pmdm-write-opened-files' manually (or in a hook) before quitting
+;; emacs to save the files you want to restore later and `pmdm-load-files'
 ;; to open the stored files again.
 ;;
-;; Customizable variable `pmdm/file-name' contains the name of the file
+;; Customizable variable `pmdm-file-name' contains the name of the file
 ;; used to store the files list.
 
 ;;; Updates:
 
 ;; 2015/08/07 Initial version.
+;; 2015/08/17 Adopted emacs-lisp code conventions.
 
 
 ;;; Code:
 
 ;;; Variables
-(defvar pmdm/file-name (expand-file-name ".pmdm-files" user-emacs-directory)
+(defvar pmdm-file-name (expand-file-name ".pmdm-files" user-emacs-directory)
   "Location of file to write in opened files.")
 
 ;;; Internal functions
-(defun pmdm~read-files-list ()
+(defun pmdm--read-files-list ()
   (with-temp-buffer
-    (insert-file-contents pmdm/file-name)
+    (insert-file-contents pmdm-file-name)
     (delete-matching-lines "^;; ")
     (read (buffer-substring-no-properties (point-min) (point-max)))))
 
 ;;; Public interface
-(defun pmdm/write-opened-files()
-  "Write a list of currently opened files to the file defined in `pmdm/file-name'."
+(defun pmdm-write-opened-files()
+  "Write a list of currently opened files to the file defined in `pmdm-file-name'."
   (interactive)
   (let ((files (delq nil (mapcar 'buffer-file-name (buffer-list)))))
     (write-region (format ";; PMDM file.\n;; Please do not edit manually.\n%s"
                           (prin1-to-string files))
                   nil
-                  pmdm/file-name)))
+                  pmdm-file-name)))
 
-(defun pmdm/load-files ()
-  "Load the files found in file `pmdm/file-name'."
+(defun pmdm-load-files ()
+  "Load the files found in file `pmdm-file-name'."
   (interactive)
   (let ((opened-files (delq nil (mapcar 'buffer-file-name (buffer-list))))
-        (files (pmdm~read-files-list))
+        (files (pmdm--read-files-list))
         (count 0))
     (dolist (file files)
       (unless (member file opened-files)
