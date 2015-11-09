@@ -48,10 +48,11 @@
 
 ;;; Internal functions
 (defun pmdm--read-files-list ()
-  (with-temp-buffer
-    (insert-file-contents pmdm-file-name)
-    (delete-matching-lines "^;; ")
-    (read (buffer-substring-no-properties (point-min) (point-max)))))
+  (when (file-exists-p pmdm-file-name)
+    (with-temp-buffer
+      (insert-file-contents pmdm-file-name)
+      (delete-matching-lines "^;; ")
+      (read (buffer-substring-no-properties (point-min) (point-max))))))
 
 ;;; Public interface
 (defun pmdm-write-opened-files()
