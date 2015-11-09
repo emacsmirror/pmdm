@@ -48,12 +48,12 @@
 
 ;;; Internal functions
 (defun pmdm--read-files-list ()
-  (if (file-exists-p pmdm-file-name)
+  (when (file-exists-p pmdm-file-name)
     (with-temp-buffer
       (insert-file-contents pmdm-file-name)
       (delete-matching-lines "^;; ")
-      (read (buffer-substring-no-properties (point-min) (point-max))))
-    '()))
+      (read (buffer-substring-no-properties (point-min) (point-max))))))
+
 ;;; Public interface
 (defun pmdm-write-opened-files()
   "Write a list of currently opened files to the file defined in `pmdm-file-name'."
