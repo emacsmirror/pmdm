@@ -1,10 +1,10 @@
 ;;; pmdm.el --- poor man's desktop-mode alternative.
 
-;; Copyright (C) 2015 Free Software Foundation, Inc.
+;; Copyright (C) 2015-9 Free Software Foundation, Inc.
 
-;; Author: Iñigo Serna <inigoserna@gmail.com>
-;; URL: https://bitbucket.com/inigoserna/pmdm.el
-;; Version: 1.0
+;; Author: Iñigo Serna <inigoserna@gmx.com>
+;; URL: https://hg.serna.eu/emacs/pmdm
+;; Version: 1.1
 ;; Keywords:
 
 ;; This file is not part of GNU Emacs.
